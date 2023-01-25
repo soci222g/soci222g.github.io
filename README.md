@@ -12,3 +12,11 @@ aqui almacenamos la paguina web estatica que generaremos en git como tambien alg
 - un _guion Bajo_ significa ITALIC.
 - para ***bold italic*** son tres esteriscos
 - gion espacio para generar un item de lista
+
+
+## ejemplo de lista de tareas
+
+- [ ] apredner html
+- [ ] aprender css
+- [ ] apreder javascript
+- [x] aprender MySQL
