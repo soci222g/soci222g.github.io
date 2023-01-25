@@ -1,4 +1,14 @@
 
+
+html{
+font-family: 'Alegreya', serif;
+font-family: 'Chakra Petch', sans-serif;
+}
+
+h1,h2,h3,h4,h5,h6{
+font-family: 'Chakra Petch', sans-serif;
+}
+
 header,h1,nav,main,article,aside,footer{
 border:1px solid black;
 padding:0;
