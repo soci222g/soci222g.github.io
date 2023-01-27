@@ -1,0 +1,19 @@
+
+
+
+{
+	"rooms": [
+		{
+		"id":"parking", "name": "parking de ENTI", "descriptioin": "parking para los profesores. esta lleno de coches", "items": ["piedra", "bicicleta"], "doors": ["principal", "salida"]
+		}
+	],
+	
+	"items": [
+		{"id": "piedra", "name": "pedrolo", "description": "es una piedra considerablemente grande", "pikeable": "true", "pikable_mesage": "coges la piedra i te la pones en el bolsillo"},
+		{"id": "bicicleta", "name": "bicicleta", "description": "bicicleta de hace 3 siglos, seguro que si la toco pillo algo seguro", "pikeable": "fales", "pikable_mesage": "he echo muchos planes en mi vida, morirme no es una de ellas, de momento"}
+	],
+	"doors": [
+		{"id":"principal", "descripcion": "gran puerta de cristal que de a la entrada de ENTI", "rooms": ["parking", "hall"]},
+		{"id": "salida", "descripcion": "La salvacion echo puerta"
+	]
+}
