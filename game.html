@@ -20,9 +20,14 @@
 </nav>
 
 <script>
-function game (data){
-console.log(data.rooms[0].name);
 
+let game_data;
+
+function game (data){
+game_data=data;
+document.getElementById("terminal").innerHTML = "<p><strong>¡Bienvenidos a ENTIerame! </strong> el fuego de terros definitivo</p>";
+console.log(data.rooms[0].name);
+document.getElementById("terminal").innerHTML += "<p>Te encuentras en "game_data.rooms[0].name". ¿que quieres hecer?</p>";
 }
 
 fetch("https://soci222g.github.io/game.json").then(response => response.json()).then(data => game(data));
