@@ -3,9 +3,7 @@
 
 {
 	"rooms": [
-		{
-		"id":"parking", "name": "parking de ENTI", "descriptioin": "parking para los profesores. esta lleno de coches", "items": ["piedra", "bicicleta"], "doors": ["principal", "salida"]
-		}
+		{"id":"parking", "name": "parking de ENTI", "descriptioin": "parking para los profesores. esta lleno de coches", "items": ["piedra", "bicicleta"], "doors": ["principal", "salida"]}
 	],
 	
 	"items": [
