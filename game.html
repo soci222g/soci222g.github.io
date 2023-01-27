@@ -25,9 +25,19 @@ console.log(data.rooms[0].name);
 }
 
 fetch("https://soci222g.github.io/game.json").then(response => response.json()).then(data => game(data));
+
 </script>
+
 </header>
+
 <main>
+
+<form>
+<div id="terminal"></div>
+<input type="text" id="commands"/>
+
+<input type="submit" id="submit_comand"/>
+</form>
 
 <article>
 
