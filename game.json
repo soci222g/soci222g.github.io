@@ -13,5 +13,5 @@
 	"doors": [
 		{"id":"principal", "descripcion": "gran puerta de cristal que de a la entrada de ENTI", "rooms": ["parking", "hall"]},
 		{"id": "salida", "descripcion": "La salvacion echo puerta"}
-	],
+	]
 }
