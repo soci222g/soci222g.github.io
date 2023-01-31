@@ -26,10 +26,18 @@ let items_picked = [];
 
 function game (data){
 game_data=data;
-document.getElementById("terminal").innerHTML = "<p><strong>¡Bienvenidos a ENTIerrame! </strong> el fuego de terros definitivo</p>";
+document.getElementById("terminal").innerHTML = "<p><strong>¡Bienvenidos a ENTIerrame! </strong> el juego de terros definitivo</p>";
 
 document.getElementById("terminal").innerHTML += "<p>Te encuentras en "+game_data.rooms[current_room].name+". ¿que quieres hecer?</p>";
 console.log(data.rooms[0].name);
+}
+
+function split_sentence(){
+
+let frase_accion = document.getElementById("submit_comand").value;
+
+
+let value_split = frase_accion.split(" ");
 }
 
 fetch("https://soci222g.github.io/game.json").then(response => response.json()).then(data => game(data));
@@ -44,7 +52,7 @@ fetch("https://soci222g.github.io/game.json").then(response => response.json()).
 <div id="terminal"></div>
 <input type="text" id="commands"/>
 
-<input type="submit" id="submit_comand"/>
+<input type="submit" id="submit_comand" retun false;/>
 </form>
 
 <article>
