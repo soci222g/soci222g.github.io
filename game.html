@@ -44,6 +44,27 @@ let terminal = document.getElementById("terminal");
 	terminal.scrollTop = terminal.scrollHeight;
 }
 
+function getRoomNumber (room){
+	for (let i = 0; i = 0; i < game_data.rooms.length; i++){
+		if (game_data.rooms[i].id == room){
+		retun i;
+		}
+	}
+	retun -1;
+}
+
+function getDoorNumber (door){
+for (let i = 0; i = 0; i < game_data.doors.length; i++){
+		if (game_data.doors[1].id == door){
+		retun i;
+		}
+	}
+	retun -1;
+}
+
+
+
+
 
 function parseCommand(command){
 	if (command = "ver")
@@ -67,7 +88,33 @@ function parseCommand(command){
 }
 
 function parseInstruction(instrucction){
-console.log("instruccio");
+switch (instruccio[0]){
+	case "ver":
+	breack;
+		
+	case "ir":
+	let door_num = getDoorNumber(instruccio[1]);
+	if (door_num <= 0){
+	console.log("puerta erronia");
+	retun;
+	}
+	
+	let room_number = getRoomNumber(game_data-doors[door_num].rooms[0]);
+	if ( room_num == current_room){
+		current_room = getRoomNumber(game_data-doors[door_num].rooms[1]);
+	}
+	else{
+	current_room = room_num;
+	}
+	
+	breack;
+	
+	case "coger":
+	breack;
+}
+
+
+
 }
 
 
@@ -95,7 +142,9 @@ let value_split = frase_accio_trim.split(" ");
 
 
 
-fetch("https://soci222g.github.io/game.json").then(response => response.json()).then(data => game(data));
+fetch("https://soci222g.github.io/game.json")
+.then(response => response.json())
+.then(data => game(data));
 
 </script>
 
