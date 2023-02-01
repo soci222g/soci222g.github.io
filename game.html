@@ -32,9 +32,9 @@ document.getElementById("terminal").innerHTML += "<p>Te encuentras en "+game_dat
 console.log(data.rooms[0].name);
 }
 
-function split_sentence(){
+function splitSentence(){
 
-let frase_accion = document.getElementById("submit_comand").value;
+let frase_accion = document.getElementById("commands").value;
 
 
 let value_split = frase_accion.split(" ");
@@ -52,7 +52,7 @@ fetch("https://soci222g.github.io/game.json").then(response => response.json()).
 <div id="terminal"></div>
 <input type="text" id="commands"/>
 
-<input type="submit" id="submit_comand" retun false;/>
+<input type="submit" value="accion" onclick="splitSentence(); retun false";/>
 </form>
 
 <article>
