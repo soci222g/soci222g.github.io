@@ -33,21 +33,35 @@ document.getElementById("terminal").innerHTML += "<p>Te encuentras en "+game_dat
 console.log(data.rooms[0].name);
 }
 
+function parseCommand(command){
+
+}
+
+function parseInstruction(instrucction){
+
+}
+
+
 function splitSentence(){
 
 let frase_accion = document.getElementById("commands").value;
 
 
 let value_split = frase_accion.split(" ");
-value_split = comand;
+	if (value_split.length == 0){
+	document.getElementById("terminal").innerHTML = "<p><strong>ERROR	</strong>: escriu una instruccio</p>";
+	return
+	}
+	
+	if (value_split == 1){
+	parseCommand(value_split[0]);
+	}
+	else {
+	parseInstruction(value_split);
+	}
 }
 
-	if (comand.length == 1){
-	console.log("una cosa");
-	}
-	if (comand.length > 1){
-	console.log("varias casillas");
-	}
+
 
 fetch("https://soci222g.github.io/game.json").then(response => response.json()).then(data => game(data));
 
