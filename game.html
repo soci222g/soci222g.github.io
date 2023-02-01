@@ -23,6 +23,7 @@
 
 let game_data;
 let items_picked = [];
+let comand;
 
 function game (data){
 game_data=data;
@@ -38,8 +39,17 @@ let frase_accion = document.getElementById("commands").value;
 
 
 let value_split = frase_accion.split(" ");
+value_split = comand;
 }
 
+function detectar_casilla(){
+	if (comand.length == 1){
+	console.log("una cosa");
+	}
+	if (comand.length > 1){
+	console.log("varias casillas");
+	}
+}
 fetch("https://soci222g.github.io/game.json").then(response => response.json()).then(data => game(data));
 
 </script>
