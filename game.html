@@ -47,7 +47,7 @@ function splitSentence(){
 let frase_accion = document.getElementById("commands").value;
 
 
-let value_split = frase_accion.split(" ");
+let value_split = frase_accion.trim().split(" ");
 	if (value_split.length == 0){
 	document.getElementById("terminal").innerHTML = "<p><strong>ERROR	</strong>: escriu una instruccio</p>";
 	return
