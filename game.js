@@ -2,12 +2,11 @@
 let game_data;
 let current_room = 0;
 let items_picked = [];
-let comand;
 
 function game (data){
 game_data=data;
 
-document.getElementById("terminal").innerHTML = "<p><strong>¡Bienvenidos a ENTIerrame! </strong> el juego de terros definitivo</p>";
+document.getElementById("terminal").innerHTML = "<p><strong>¡Bienvenidos a ENTIerrame!</strong> El juego de terror definitivo.</p>";
 
 document.getElementById("terminal").innerHTML += "<p>Te encuentras en "+game_data.rooms[current_room].name+". ¿Qué quieres hacer?</p>";
 
@@ -26,6 +25,7 @@ let terminal = document.getElementById("terminal");
 
 
 function parseCommand(command){
+	
 	
 	switch (command) {
 	case "ver":
@@ -60,6 +60,7 @@ function getRoomNumber (room){
 }
 
 function getDoorNumber (door){
+
 for (let i = 0; i < game_data.doors.length; i++){
 		if (game_data.doors[i].id == door){
 		return i;
@@ -86,17 +87,17 @@ function parseInstruction(instruction){
 
 switch (instruction[0]){
 	case "ver":
-	let objeto_num = getItemNumber(instruccio[1]);
+	let objeto_num = getItemNumber(instruction[1]);
 	if (objeto_num < 0){
 	
-	console.log("error: item no existent"):
+	console.log("error: item no existent");
 	
 	return;
 	}
 	
 	
 	if (objeto_num >= 0){
-	terminal_out("<p>"+game_data.items[objeto_num].descriptioin+"</p>");
+	terminal_out("<p>"+game_data.items[objeto_num].description+"</p>");
 	}
 	break;
 	
@@ -124,12 +125,13 @@ switch (instruction[0]){
 	case "coger":
 	
 	game_data.rooms[current_room].items.forEach(function(item){
-		if (item = instruction[1]){
+		if (item == instruction[1]){
 			items_picked.push(item);
-			let item_num = game_data.rooms[current_room].items.indexof.(itemÇ);
+			let item_num = game_data.rooms[current_room].items.indexOf(item);
+			
 			if (item_num < 0){
-			console.log("error al borar el item de la aplicacion");
-			return;
+				console.log("error al borar el item de la aplicacion");
+				return;
 			}
 		game_data.rooms[current_room].items.splice(item_num, 1);
 		
@@ -137,11 +139,24 @@ switch (instruction[0]){
 		
 		}
 	});
+	break;
+	case "inventario":
+	let objeto_name = getItemNumber(instruction[1]);
+	if (objeto_name < 0){
+		for(let i = 0; i < items_picked.length; i++)
+		terminal_out("<p>"+game_data.items[i].description+"</p>");
+	}
+	
+	if (objeto_name == instruction[1]){
+		terminal_out("<p>"+game_data.items.description[objeto_name].description+"</p>");
+	}
+		
 	
 		
 	
 	default:
 	terminal_out("<p><strong>Error</strong>: "+instruction[0]+" commando no encontrado</p>");
+	}
 }
 
 
@@ -161,7 +176,8 @@ let value_split = frase_accio_trim.split(" ");
 	return
 	}
 	
-	if (value_split == 1){
+	if (value_split.length == 1){
+		console.log("comando unico");
 	parseCommand(value_split[0]);
 	
 		}
