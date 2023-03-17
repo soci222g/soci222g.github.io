@@ -32,6 +32,14 @@ function parseCommand(command){
 	terminal_out("<p>"+game_data.rooms[current_room].descriptioin+"</p>");
 		break;
 		
+	case "coger":
+		let items = "";
+		let items_num = game_data.rooms[current_room].items.length;
+		for (let i = 0; i < items_num; i++){
+		items += game_data.rooms[current_room].items[i]+" ";
+		}
+		terminal_out("<p>Puedes coger: "+items+"</p>");
+	break;
 	case "ir":
 			let doors = "";
 			let doors_num = game_data.rooms[current_room].doors.length;
@@ -46,7 +54,7 @@ function parseCommand(command){
 			return;
 		}
 			for (let i = 0; i < items_picked.length; i++){
-			terminal_out("<p>"+items_picked[i].id+"</p>");	
+			terminal_out("<p>"+items_picked[i]+"</p>");	
 			} 
 			
 			break
@@ -134,6 +142,7 @@ switch (instruction[0]){
 	game_data.rooms[current_room].items.forEach(function(item){
 		if (item == instruction[1]){
 			items_picked.push(item);
+			terminal_out("<p> as cogido: "+item+"</p>");
 			let item_num = game_data.rooms[current_room].items.indexOf(item);
 			
 			if (item_num < 0){
@@ -150,7 +159,7 @@ switch (instruction[0]){
 	case "inventario":
 	let objeto_number = getItemNumber(instruction[1]);
 	if (objeto_number < 0){
-		console.log("Habitación errónea");
+		console.log("item errónea");
 				return;
 	}
 	for (let i = 0; i < items_picked.length; i++){
