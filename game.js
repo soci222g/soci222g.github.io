@@ -116,10 +116,9 @@ switch (instruction[0]){
 				return;
 			}
 	
-	let room_num = getRoomNumber(game_data-doors[door_num].rooms[0]);
+	let room_num = getRoomNumber(game_data.doors[door_num].rooms[0]);
 	if ( room_num == current_room){
-		
-		current_room = getRoomNumber(game_data-doors[door_num].rooms[1]);
+		current_room = getRoomNumber(game_data.doors[door_num].rooms[1]);
 				
 		}
 	else{
