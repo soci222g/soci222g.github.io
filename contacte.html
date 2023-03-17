@@ -3,6 +3,16 @@
 <head>
 <title>  pagina de jordi </title>
 <link rel="stylesheet" href="base.css" />
+<script>
+function sent(){
+	let name = document.getElementById("nombre_form").value;
+	let empresa = document.getElementById("empresa").value;
+	let mail = document.getElementById("mail").value;
+
+	mesage = "nombre: "+ name + "\nempresa: " + empresa + "\nmail: " + mail + "\nEsto es un ejercicio de clase, no se va a enviar";
+	alert(mesage);
+}
+</script>
 </head>
 
 <body>
@@ -13,14 +23,22 @@
 <li id="menu-prenetacion"><a href="index.html"> presentació </a></li>
 <li id="menu-hobbies"><a href="hobbies.html"> hobbies </a></li>
 <li id="manu-contacte"><a href="contacte.html"> contacte</a></li>
-<li id="menu-CV"><a href="cv.html"> CV </a></li>
 <li id="menu-game"><a href="game.html"> Game </a></li>
 </ul>
 </nav>
 </header>
 <main>
 
+
 <article>
+<h2> FORMULARIO </h2>
+<form>
+<p><label for="name">nombre: </label><input type="text" name="name" id="nombre_form"/></p>
+<p><label for="name">empresa: </label><input type="text" name="empresa" id="empresa"/></p>
+<p><label for="email">email: </label><input type="email" name="email" id="mail"/></p>
+
+<input type="submit" value="Enviar" onclick="sent()">
+</form>
 </article>
 
 

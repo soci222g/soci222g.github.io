@@ -40,7 +40,16 @@ function parseCommand(command){
 			}
 			terminal_out("<p>Puedes ir a: "+doors+"</p>");
 			break;
-	
+	case "inventario":
+		if(items_picked.length <= 0){
+			terminal_out("<p> inventario vacio</p>");
+			return;
+		}
+			for (let i = 0; i < items_picked.length; i++){
+			terminal_out("<p>"+items_picked[i].id+"</p>");	
+			} 
+			
+			break
 		default:
 		terminal_out("<p><strong>ERROR:</strong>"+command+" command not found</p>");
 	}
@@ -60,7 +69,6 @@ function getRoomNumber (room){
 }
 
 function getDoorNumber (door){
-
 for (let i = 0; i < game_data.doors.length; i++){
 		if (game_data.doors[i].id == door){
 		return i;
@@ -141,17 +149,17 @@ switch (instruction[0]){
 	});
 	break;
 	case "inventario":
-	let objeto_name = getItemNumber(instruction[1]);
-	if (objeto_name < 0){
-		for(let i = 0; i < items_picked.length; i++)
-		terminal_out("<p>"+game_data.items[i].description+"</p>");
+	let objeto_number = getItemNumber(instruction[1]);
+	if (objeto_number < 0){
+		console.log("Habitación errónea");
+				return;
 	}
-	
-	if (objeto_name == instruction[1]){
-		terminal_out("<p>"+game_data.items.description[objeto_name].description+"</p>");
-	}
+	for (let i = 0; i < items_picked.length; i++){
+		if (objeto_number == items_picked[i]){
+			terminal_out("<p>"+game_data.items[objeto_number].description+"</p>");
+		}
 		
-	
+	}
 		
 	
 	default:

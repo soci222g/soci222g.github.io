@@ -4,7 +4,10 @@ html{
 font-family: 'Alegreya', serif;
 font-family: 'Chakra Petch', sans-serif;
 }
-
+body{
+	background: #93BBEC;
+	
+}
 h1,h2,h3,h4,h5,h6{
 font-family: 'Chakra Petch', sans-serif;
 }
@@ -47,6 +50,9 @@ aside{
 	flex-basis: 25%;
 }
 
+p label{
+	
+}
 @media (max-width: 600px){
 	main{
 		flex-direction:column;
