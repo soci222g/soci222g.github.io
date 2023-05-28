@@ -163,12 +163,10 @@ switch (instruction[0]){
 		console.log("item errónea");
 				return;
 	}
-	for (let i = 0; i < items_picked.length; i++){
-		if (objeto_number == items_picked[i]){
-			terminal_out("<p>"+game_data.items[objeto_number].description+"</p>");
-		}
-		
-	}
+	let descriptioin_item = game_data.items[objeto_number].descriptioin;
+	
+	terminal_out("<p>"+game_data.items[objeto_number].description+"</p>");
+	
 		
 	
 	default:
