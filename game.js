@@ -127,7 +127,7 @@ switch (instruction[0]){
 	let room_num = getRoomNumber(game_data.doors[door_num].rooms[0]);
 	if ( room_num == current_room){
 		current_room = getRoomNumber(game_data.doors[door_num].rooms[1]);
-				
+		terminal_out("<p>"+game_data.rooms[current_room].descriptioin+"</p>");	
 		}
 	else{
 	
