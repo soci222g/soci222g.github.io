@@ -132,6 +132,7 @@ switch (instruction[0]){
 	else{
 	
 	current_room = room_num;
+	terminal_out("<p>"+game_data.rooms[current_room].descriptioin+"</p>");
 	
 	}
 	
