@@ -141,20 +141,30 @@ switch (instruction[0]){
 	case "coger":
 	
 	game_data.rooms[current_room].items.forEach(function(item){
+		if (game_data.items[getItemNumber(items)].pickable == false) {
+						terminal_out("<p>Este item no se puede recojer</p>");
+						return;
+		}
+		
+
+		
 		if (item == instruction[1]){
-			items_picked.push(item);
-			terminal_out("<p> as cogido: "+item+"</p>");
-			let item_num = game_data.rooms[current_room].items.indexOf(item);
+			items_picked.push(game_data.rooms[current_room].items.splice(item_num, 1));
 			
-			if (item_num < 0){
+			let item_num = game_data.rooms[current_room].items.indexOf(item);
+				if (item_num < 0){
 				console.log("error al borar el item de la aplicacion");
 				return;
 			}
-		game_data.rooms[current_room].items.splice(item_num, 1);
+		}
 		
+			
+			
+		
+		terminal_out("<p> as cogido: "+item+"</p>");
 		return;
 		
-		}
+		
 	});
 	break;
 	case "inventario":
