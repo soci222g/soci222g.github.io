@@ -49,6 +49,7 @@ function parseCommand(command){
 			terminal_out("<p>Puedes ir a: "+doors+"</p>");
 			break;
 	case "inventario":
+	console.log(items_picked);
 		if(items_picked.length <= 0){
 			terminal_out("<p> inventario vacio</p>");
 			return;
@@ -140,44 +141,48 @@ switch (instruction[0]){
 	
 	case "coger":
 	
-	game_data.rooms[current_room].items.forEach(function(item){
-		if (game_data.items[getItemNumber(items)].pikeable == false) {
-						terminal_out("<p>Este item no se puede recojer</p>");
-						return;
-		}
+	game_data.rooms[current_room].items.forEach(function(items){
+		
 		
 
-		
-		if (item == instruction[1]){
-			items_picked.push(game_data.rooms[current_room].items.splice(item_num, 1));
+		if (items == instruction[1]){
 			
-			let item_num = game_data.rooms[current_room].items.indexOf(item);
+			let item_num = game_data.rooms[current_room].items.indexOf(items);
 				if (item_num < 0){
 				console.log("error al borar el item de la aplicacion");
 				return;
 			}
-		}
+			items_picked.push(game_data.rooms[current_room].items.splice(item_num, 1));
+		
+			if (game_data.items[getItemNumber(items)].pickeable == false) {
+						terminal_out("<p>Este item no se puede recojer</p>");
+						return;
+		
+			}
 		
 			
 			
 		
-		terminal_out("<p> as cogido: "+item+"</p>");
+		terminal_out("<p> as cogido: "+items+"</p>");
 		return;
-		
+		}
 		
 	});
 	break;
 	case "inventario":
 	let objeto_number = getItemNumber(instruction[1]);
-	if (objeto_number < 0){
-		console.log("item errónea");
-				return;
-	}
-	let descriptioin_item = game_data.items[objeto_number].descriptioin;
+	for (let i = 0; i < items_picked.length; i++){
+		if (objeto_number == i){
+			let descriptioin_item = game_data.items[objeto_number].descriptioin;
 	
-	terminal_out("<p>"+game_data.items[objeto_number].description+"</p>");
-	
+			terminal_out("<p>"+game_data.items[objeto_number].description+"</p>");
+			return;
+		}
 		
+	}
+	
+	terminal_out("<p>el objeto no esta en tu inventario</p>");
+		break;
 	
 	default:
 	terminal_out("<p><strong>Error</strong>: "+instruction[0]+" commando no encontrado</p>");
@@ -197,7 +202,7 @@ let value_split = frase_accio_trim.split(" ");
 
 
 	if (value_split.length == 0 || frase_accio_trim == ""){
-	document.getElementById("terminal").innerHTML = "<p><strong>ERROR	</strong>: escriu una instruccio</p>";
+	document.getElementById("terminal").innerHTML = "<p><strong>ERROR</strong>: escriu una instruccio (ir, coger, ver, inventario)</p>";
 	return
 	}
 	
