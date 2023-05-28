@@ -141,7 +141,7 @@ switch (instruction[0]){
 	case "coger":
 	
 	game_data.rooms[current_room].items.forEach(function(item){
-		if (game_data.items[getItemNumber(items)].pickable == false) {
+		if (game_data.items[getItemNumber(items)].pikeable == false) {
 						terminal_out("<p>Este item no se puede recojer</p>");
 						return;
 		}
