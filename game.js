@@ -144,6 +144,7 @@ switch (instruction[0]){
 	game_data.rooms[current_room].items.forEach(function(item){
 		
 		console.log(item);
+		console.log(instruction[1]);
 
 		if (item == instruction[1]){
 				console.log(item);

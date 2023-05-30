@@ -4,7 +4,7 @@
 {
 	"rooms": [
 		{"id":"parking", "name": "parking de ENTI", "descriptioin": "parking para los profesores. esta lleno de coches", "items": ["piedra", "bicicleta"], "doors": ["principal", "salida"]},
-		{"id":"hall", "name": "recepcion", "descriptioin": "es la recepcion de ENTI, toda prece normal aunque hay una aura distinta", "items": ["boligrafo, folleto"], "doors": ["parking", "clase de VIOD", "puerta rara"]},
+		{"id":"hall", "name": "recepcion", "descriptioin": "es la recepcion de ENTI, toda prece normal aunque hay una aura distinta", "items": ["boligrafo", "folleto"], "doors": ["parking", "clase de VIOD", "puerta rara"]},
 		{"id":"VOID_1", "name": "VOID_1", "descriptioin": "la clase en la que voi cada dia, la podra recorer con los ojos cerados.", "items": ["PC"], "doors": ["clase_de_VIOD"]},
 		{"id":"subteranio", "name": "subteranio", "descriptioin": "es una escalera que desciende hacia lo mas profundo, no se ve el final", "doors": ["puerta_rara", "puerta_al_helheim"]},
 		{"id":"hellhaim", "name": "hellhaim", "descriptioin": "es un paramo elado lleno de almas en pena, esto definitivamente es un lugar el qual nedie deveria tener acceso", "items": ["fuego_de_hellhaim"],"doors": ["puerta_al_helheim"]}
