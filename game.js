@@ -104,36 +104,36 @@ function parseInstruction(instruction){
 
 switch (instruction[0]){
 	case "ver":
-	let objeto_num = getItemNumber(instruction[1]);
-	if (objeto_num < 0){
+		let objeto_num = getItemNumber(instruction[1]);
+		if (objeto_num < 0){
 	
-	console.log("error: item no existent");
+		console.log("error: item no existent");
 	
-	return;
-	}
+		return;
+		}
 	
 	
-	if (objeto_num >= 0){
-	terminal_out("<p>"+game_data.items[objeto_num].description+"</p>");
-	}
+		if (objeto_num >= 0){
+		terminal_out("<p>"+game_data.items[objeto_num].description+"</p>");
+		}
 	break;
 	
 	case "ir":
-	let door_num = getDoorNumber(instruction[1]);
-	if (door_num < 0){
-				console.log("Habitación errónea");
-				return;
+		let door_num = getDoorNumber(instruction[1]);
+		if (door_num < 0){
+					console.log("Habitación errónea");
+					return;
+				}
+	
+		let room_num = getRoomNumber(game_data.doors[door_num].rooms[0]);
+		if ( room_num == current_room){
+			current_room = getRoomNumber(game_data.doors[door_num].rooms[1]);
+			terminal_out("<p>"+game_data.rooms[current_room].descriptioin+"</p>");	
 			}
+		else{
 	
-	let room_num = getRoomNumber(game_data.doors[door_num].rooms[0]);
-	if ( room_num == current_room){
-		current_room = getRoomNumber(game_data.doors[door_num].rooms[1]);
-		terminal_out("<p>"+game_data.rooms[current_room].descriptioin+"</p>");	
-		}
-	else{
-	
-	current_room = room_num;
-	terminal_out("<p>"+game_data.rooms[current_room].descriptioin+"</p>");
+			current_room = room_num;
+			terminal_out("<p>"+game_data.rooms[current_room].descriptioin+"</p>");
 	
 	}
 	
@@ -141,51 +141,66 @@ switch (instruction[0]){
 	
 	case "coger":
 	
-	game_data.rooms[current_room].items.forEach(function(items){
+	game_data.rooms[current_room].items.forEach(function(item){
 		
-		
+		console.log(item);
 
-		if (items == instruction[1]){
-			
-			let item_num = game_data.rooms[current_room].items.indexOf(items);
+		if (item == instruction[1]){
+				console.log(item);
+				let item_num = game_data.rooms[current_room].items.indexOf(item);
+				
+
 				if (item_num < 0){
 				console.log("error al borar el item de la aplicacion");
 				return;
 			}
-			items_picked.push(game_data.rooms[current_room].items.splice(item_num, 1));
+				item_num=getItemNumber(item);
+				console.log(game_data.items[item_num].pikeable);
+				console.log(game_data.items[item_num]);
 		
-			if (game_data.items[getItemNumber(items)].pickeable == false) {
+			if (game_data.items[item_num].pikeable == false) {
+						console.log("hey");
+						
 						terminal_out("<p>Este item no se puede recojer</p>");
 						return;
-		
+			}
+			
+			
+			game_data.rooms[current_room].items.forEach(item => {
+				if (item == instruction[1]){
+					items_picked.push(game_data.rooms[current_room].items.splice(item_num, 1));
+				}
+				
+			});
+				
+				terminal_out("<p> as cogido: "+item+"</p>");
+				return;
 			}
 		
 			
-			
-		
-		terminal_out("<p> as cogido: "+items+"</p>");
-		return;
-		}
 		
 	});
 	break;
 	case "inventario":
 	let objeto_number = getItemNumber(instruction[1]);
-	for (let i = 0; i < items_picked.length; i++){
-		if (objeto_number == i){
-			let descriptioin_item = game_data.items[objeto_number].descriptioin;
-	
+	console.log(objeto_number);
+		for(let i = 0; i < items_picked.length; i++){
+			if(instruction[1] == items_picked[i]){
 			terminal_out("<p>"+game_data.items[objeto_number].description+"</p>");
-			return;
+			}
+			else
+				terminal_out("<p>este objeto no esta en el inventario</p>");
+				
 		}
+		if(items_picked.length <= 0)
+		terminal_out("<p>inventario vacio</p>");
+				
 		
-	}
-	
-	terminal_out("<p>el objeto no esta en tu inventario</p>");
 		break;
 	
 	default:
 	terminal_out("<p><strong>Error</strong>: "+instruction[0]+" commando no encontrado</p>");
+	
 	}
 }
 
