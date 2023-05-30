@@ -120,6 +120,8 @@ switch (instruction[0]){
 	
 	case "ir":
 		let door_num = getDoorNumber(instruction[1]);
+	
+		
 		if (door_num < 0){
 					console.log("Habitación errónea");
 					return;
@@ -127,15 +129,17 @@ switch (instruction[0]){
 	
 		let room_num = getRoomNumber(game_data.doors[door_num].rooms[0]);
 		if ( room_num == current_room){
-			current_room = getRoomNumber(game_data.doors[door_num].rooms[1]);
-			terminal_out("<p>"+game_data.rooms[current_room].descriptioin+"</p>");	
+			current_room = getRoomNumber(game_data.doors[door_num].rooms[1]);	
 			}
 		else{
 	
 			current_room = room_num;
+		}	
+		
+			console.log(current_room);
 			terminal_out("<p>"+game_data.rooms[current_room].descriptioin+"</p>");
 	
-	}
+
 	
 	break;
 	

@@ -4,9 +4,9 @@
 {
 	"rooms": [
 		{"id":"parking", "name": "parking de ENTI", "descriptioin": "parking para los profesores. esta lleno de coches", "items": ["piedra", "bicicleta"], "doors": ["principal", "salida"]},
-		{"id":"hall", "name": "recepcion", "descriptioin": "es la recepcion de ENTI, toda prece normal aunque hay una aura distinta", "items": ["boligrafo", "folleto"], "doors": ["parking", "clase de VIOD", "puerta rara"]},
-		{"id":"VOID_1", "name": "VOID_1", "descriptioin": "la clase en la que voi cada dia, la podra recorer con los ojos cerados.", "items": ["PC"], "doors": ["clase_de_VIOD"]},
-		{"id":"subteranio", "name": "subteranio", "descriptioin": "es una escalera que desciende hacia lo mas profundo, no se ve el final", "doors": ["puerta_rara", "puerta_al_helheim"]},
+		{"id":"hall", "name": "recepcion", "descriptioin": "es la recepcion de ENTI, toda prece normal aunque hay una aura distinta", "items": ["boligrafo", "folleto"], "doors": ["principal", "clase de VIOD", "puerta_rara"]},
+		{"id":"VOID_1", "name": "VOID_1", "descriptioin": "la clase en la que voi cada dia, la podra recorer con los ojos cerados.", "items": ["PC"], "doors": ["clase de VIOD"]},
+		{"id":"subteranio", "name": "subteranio", "descriptioin": "es una escalera que desciende hacia lo mas profundo, no se ve el final", "doors": ["principal", "puerta_al_helheim"]},
 		{"id":"hellhaim", "name": "hellhaim", "descriptioin": "es un paramo elado lleno de almas en pena, esto definitivamente es un lugar el qual nedie deveria tener acceso", "items": ["fuego_de_hellhaim"],"doors": ["puerta_al_helheim"]}
 		
 		
@@ -22,9 +22,9 @@
 	],
 	"doors": [
 		{"id":"principal", "descripcion": "gran puerta de cristal que de a la entrada de ENTI", "rooms": ["parking", "hall"]},
-		{"id":"clase_de_VIOD", "descripcion": "es la puerata a nuestra clase, esta ligeramente aviera.", "rooms": ["VOID_1", "hall"]},
-		{"id":"puerta_rara", "descripcion": "esta puerta no me suena, es de un color negro, de ella sale un luz azulada. da un mal rollo que flipas.","rooms": ["subteranio", "hall"]},
-		{"id":"puerta_al_helheim", "descripcion": "es un puerta doble gigantesca decorada con varios simblolos satanicos, de ella selen copos de nieve, pareque que la han avierto hace poco por las marcas en el suelo","rooms": ["subteranio", "hellhaim"]},
+		{"id":"clase de VIOD", "descripcion": "es la puerata a nuestra clase, esta ligeramente aviera.", "rooms": ["VOID_1", "hall"]},
+		{"id":"puerta rara", "descripcion": "esta puerta no me suena, es de un color negro, de ella sale un luz azulada. da un mal rollo que flipas.","rooms": ["subteranio", "hall"]},
+		{"id":"puerta al helheim", "descripcion": "es un puerta doble gigantesca decorada con varios simblolos satanicos, de ella selen copos de nieve, pareque que la han avierto hace poco por las marcas en el suelo","rooms": ["subteranio", "hellhaim"]},
 		{"id": "salida", "descripcion": "La salvacion echo puerta"}
 	]
 }
